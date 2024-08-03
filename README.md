@@ -22,7 +22,7 @@
   - [🧾 数据来源](#-数据来源)
   - [🧑‍💻 微调指南](#-微调指南)
   - [🧑‍💻 RAG指南](#-RAG指南)
-  - [🧑‍💻 模型量化](#-模型量化)
+  - [🧑‍💻 LMDeploy模型量化](#-LMDeploy模型量化)
   - [📚 应用体验](#-应用体验)
   - [🎖️ 致谢](#️-致谢)
  
@@ -177,18 +177,30 @@ python create_db.py
 ```
 2、Demo
 
-```bash
+```python
 python web_RAG.py
 ```
 
-## 🧑‍💻 模型量化
-基于 LMDeploy 高性能部署
+## 🧑‍💻LMDeploy 模型量化
+
+1、进行 4bit 量化
+
+```bash
+lmdeploy lite auto_awq \
+   /group_share/Ancient_Books/model/Ancient_Books \
+  --calib-dataset 'ptb' \
+  --calib-samples 128 \
+  --calib-seqlen 1024 \
+  --w-bits 4 \
+  --w-group-size 128 \
+  --work-dir /group_share/Ancient_Books/Ancient_Books_int4
+```
+  
+2、基于 LMDeploy 高性能部署
 
 ```python
-lmdeploy chat /group_share/Ancient_Books/model/Ancient_Books  --model-name internlm2
+lmdeploy chat /group_share/Ancient_Books/model/Ancient_Books_int4  --model-name internlm2
 ```
-
-
 
 
 ## 💕 致谢
