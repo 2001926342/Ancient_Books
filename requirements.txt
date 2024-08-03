@@ -358,7 +358,7 @@ toml==0.10.2
 tomli==2.0.1
 tomlkit==0.12.0
 toolz==0.12.1
-torch==2.2.2
+torch==2.3.1
 torch-complex==0.4.4
 torchaudio==2.2.2
 torchmetrics==1.4.0.post0
