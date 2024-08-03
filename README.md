@@ -22,6 +22,7 @@
   - [🧾 数据来源](#-数据来源)
   - [🧑‍💻 微调指南](#-微调指南)
   - [🧑‍💻 RAG指南](#-RAG指南)
+  - [🧑‍💻 模型量化](#-模型量化)
   - [📚 应用体验](#-应用体验)
   - [🎖️ 致谢](#️-致谢)
  
@@ -74,7 +75,7 @@ streamlit run web.py --server.port 7860
 
 ## 🧾 数据来源
 
-一下是项目目前使用到的开源数据集，还使用爬虫技术获取我们所需数据集：
+以下是项目目前使用到的开源数据集，还使用爬虫技术获取我们所需数据集：
 
 文言文：https://huggingface.co/datasets/RUCAIBox/Erya-dataset/tree/main
 
@@ -162,6 +163,31 @@ xtuner convert merge \
 ```
 
 ## 🧑‍💻 RAG指南
+
+1、数据集构建
+```bash
+cd /group_share/Ancient_Books/dataset
+python gen_dataset.py
+python sample_dataset.py
+```
+
+```bash
+cd /group_share/Ancient_Books/RAG
+python create_db.py
+```
+2、Demo
+
+```bash
+python web_RAG.py
+```
+
+## 🧑‍💻 模型量化
+基于 LMDeploy 高性能部署
+
+```python
+lmdeploy chat /group_share/Ancient_Books/model/Ancient_Books  --model-name internlm2
+```
+
 
 
 
