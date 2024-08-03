@@ -1,18 +1,101 @@
 # Ancient_Books
-<img src="./assets/logo.png" width="200" style="display: block; margin: 0 auto;"/>
+<div align="center">
+  <img src="./assets/logo.png" width="600"/>
+  <!-- <a href="https://github.com/Nobody-ML/SoulStar/tree/main/">
+    <img src="assets/logo.png" alt="Logo" width="600">  </a> -->
+  <h3 align="center">Ancient_Books - 古籍解读大模型</h3>
+</div>
+开源不易，如果本项目帮到大家，可以右上角帮我点个 star~ ⭐ 
+您的 star ⭐是我们最大的鼓励，欢迎 Star⭐、PR 和 Issue。
 
-## 📝目录
+ ## 📖 目录
+- [Ancient_Books - 古籍解读大模型](#Ancient_Books---古籍解读大模型)
+  - [📖 目录](#-目录)
+  - [🔄 架构图](#-架构图)
+  - [📝 简介](#-简介)
+  - [🛠️ 使用方法](#️-使用方法)
+    - [1、下载模型](#1-下载模型)
+    - [2、环境部署：](#2、环境部署)
+    - [3、本地部署](#3、本地部署)
+  - [🧾 数据来源](#-数据来源)
+  - [🧑‍💻 微调指南](#-微调指南)
+  - [🧑‍💻 RAG指南](#-RAG指南)
+  - [📚 应用体验](#-应用体验)
+  - [🎖️ 致谢](#️-致谢)
+ 
+## 🔄 架构图
 
-- [📖 简介](#-简介)
-- [🚀 News](#-news)
-- [🛠️ 使用方法](#%EF%B8%8F-使用方法)
-  * [快速开始](#快速开始)
-  * [重新训练](#重新训练)
-    + [环境搭建](#环境搭建)
-    + [XTuner微调](#xtuner微调)
-    + [OpenXLab应用部署](#openxlab应用部署)
-    + [LMDeploy量化](#lmdeploy量化)
-    + [OpenCompass评测](#opencompass评测)
-    + [LMDeploy & OpenCompass量化以及量化评测](#lmdeploy--opencompass量化以及量化评测)
-- [💕 致谢](#-致谢)
-- [🖊️ Citation](#%EF%B8%8F-citation)
+## 📝 简介
+
+
+## 🛠️ 使用方法
+
+### 快速开始
+
+1. 下载模型：
+
+<details>
+ 
+<summary> 从 ModelScope </summary>
+ 
+参考 [模型的下载]( https://modelscope.cn/models/CFYuan/Ancient_Books) 。
+
+```bash
+pip install modelscope
+```
+
+```python
+from modelscope import snapshot_download
+model_dir = snapshot_download('CFYuan/Ancient_Books')
+```
+或者参考文件 download_model.py ，支持7B模型与7B int4 量化后的模型
+
+```python
+python  download_model.py
+python  download_hf.py
+```
+
+
+</details>
+
+2、环境部署：
+
+```bash
+git clone https://github.com/2001926342/Ancient_Books
+
+pip install requirements.txt
+```
+3、本地部署
+
+```python
+streamlit run web.py --server.port 7860
+```
+
+
+## 🧾 数据来源
+
+文言文：https://huggingface.co/datasets/RUCAIBox/Erya-dataset/tree/main
+古诗：https://github.com/chinese-poetry/chinese-poetry
+文言文（古文）- 现代文平行语料：https://github.com/NiuTrans/Classical-Modern
+
+
+## 💕 致谢
+
+### 项目成员
+
+- 陈辅元-项目负责人 （甘肃政法大学 Datawhale鲸英助教 负责模型微调训练，数据收集，RAG内容整理）
+- 张世斌-项目负责人 （甘肃政法大学）
+- 柴承清 （甘肃政法大学）
+- 李智江 （甘肃政法大学）
+- 符银霞 （甘肃政法大学）
+
+### 特别鸣谢
+<div align="center">
+ 
+***感谢上海人工智能实验室组织的 书生·浦语实战营 学习活动~***
+
+***感谢 OpenXLab 对项目部署的算力支持~***
+
+***感谢 浦语小助手 对项目的支持~***
+
+***感谢上海人工智能实验室推出的书生·浦语大模型实战营，为我们的项目提供宝贵的技术指导和强大的算力支持！***
