@@ -207,9 +207,9 @@ lmdeploy chat /group_share/Ancient_Books/model/Ancient_Books_int4  --model-name 
 
 ### 项目成员
 
-- 陈辅元-项目负责人 （甘肃政法大学 Datawhale鲸英助教 负责模型微调训练，数据收集，RAG内容整理）
+- 陈辅元-项目负责人 （甘肃政法大学 Datawhale鲸英助教 负责模型微调训练+数据收集+RAG内容整理+项目整理）
 - 张世斌-项目负责人 （甘肃政法大学）
-- 柴承清 （甘肃政法大学）
+- 柴承清 （甘肃政法大学 负责SDK编写+Agent编写（ing中）+模型微调）
 - 李智江 （甘肃政法大学）
 - 符银霞 （甘肃政法大学）
 
