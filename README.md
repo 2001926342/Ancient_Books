@@ -1,5 +1,6 @@
 # Ancient_Books
-<img src="./assets/logo.png" width="200"/>
+<img src="./assets/logo.png" width="200" style="display: block; margin: 0 auto;"/>
+
 ## 📝目录
 
 - [📖 简介](#-简介)
@@ -14,4 +15,4 @@
     + [OpenCompass评测](#opencompass评测)
     + [LMDeploy & OpenCompass量化以及量化评测](#lmdeploy--opencompass量化以及量化评测)
 - [💕 致谢](#-致谢)
-- [🖊️ Citation](
+- [🖊️ Citation](#%EF%B8%8F-citation)
