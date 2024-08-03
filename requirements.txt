@@ -31,7 +31,6 @@ bcrypt==4.2.0
 beautifulsoup4==4.12.3
 bleach==6.1.0
 blinker==1.8.2
-botocore==1.34.149
 build==1.2.1
 cachetools==5.4.0
 certifi==2024.7.4
@@ -157,7 +156,6 @@ jupyterlab-server==2.27.3
 jupyterlab-widgets==3.0.11
 kaldiio==2.18.0
 kiwisolver==1.4.5
-kubernetes==30.1.0
 langchain==0.2.11
 langchain-community==0.2.10
 langchain-core==0.2.23
