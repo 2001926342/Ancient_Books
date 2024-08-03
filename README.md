@@ -85,7 +85,81 @@ streamlit run web.py --server.port 7860
 
 ## 🧑‍💻 微调指南
 
+本项目使用 xtuner 训练，在 internlm2-chat-7b 上进行微调
 
+1、列出所有内置配置
+
+```bash
+xtuner list-cfg
+cd /group_share/Ancient_Books/config
+xtuner copy-cfg internlm2_chat_7b_qlora_oasst1_e3 .
+```
+
+2、模型下载
+
+```bash
+mkdir -p /group_share/Ancient_Books/model
+```
+
+```python
+import torch
+from modelscope import snapshot_download, AutoModel, AutoTokenizer
+import os
+model_dir = snapshot_download('Shanghai_AI_Laboratory/internlm2-math-7b', cache_dir='/group_share/Ancient_Books/model')
+```
+
+3、修改配置文件
+
+```bash
+# 修改模型为本地路径
+- pretrained_model_name_or_path = 'internlm/internlm-chat-7b'
++ pretrained_model_name_or_path = '/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b'
+
+# 修改训练数据集为本地路径
+- data_path = 'timdettmers/openassistant-guanaco'
++ data_path = '/group_share/Ancient_Books/dataset/data/sampled_data.json'
+```
+
+4、开始微调
+
+```bash
+xtuner train /group_share/Ancient_Books/config/internlm2_chat_7b_qlora_oasst1_e3_copy.py
+```
+或者使用配置好的
+
+```bash
+xtuner train /group_share/Ancient_Books/config/internlm2_chat_7b_qlora_ancient_e3.py
+```
+
+5、PTH 模型转换为 HuggingFace 模型
+```bash
+mkdir /group_share/Ancient_Books/config/hf
+export MKL_SERVICE_FORCE_INTEL=1
+export MKL_THREADING_LAYER=GNU
+xtuner convert pth_to_hf ./internlm2_chat_7b_qlora_ancient_e3.py \
+                         ./work_dirs/internlm2_chat_7b_qlora_ancient_e3/epoch_3.pth \
+                         ./hf
+
+```
+6、HuggingFace 模型合并到大语言模型
+
+```bash
+
+# 原始模型参数存放的位置
+export NAME_OR_PATH_TO_LLM=/group_share/Ancient_Books/model/Shanghai_AI_Laboratory/internlm2-math-7b
+# Hugging Face格式参数存放的位置
+export NAME_OR_PATH_TO_ADAPTER=/group_share/Ancient_Books/config/hf
+# 最终Merge后的参数存放的位置
+mkdir /group_share/Ancient_Books/config/work_dirs/hf_merge
+export SAVE_PATH=/group_share/Ancient_Books/config/work_dirs/hf_merge
+
+# 执行参数Merge
+xtuner convert merge \
+    $NAME_OR_PATH_TO_LLM \
+    $NAME_OR_PATH_TO_ADAPTER \
+    $SAVE_PATH \
+    --max-shard-size 2GB
+```
 
 ## 🧑‍💻 RAG指南
 
