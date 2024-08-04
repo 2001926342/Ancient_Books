@@ -17,9 +17,7 @@ logger = logging.get_logger(__name__)
 print('pip install modelscope websockets')
 os.system(f'pip install modelscope websockets==11.0.3')
 base_path = './Ancient_Books'
-# download repo to the base_path directory using git
-os.system('apt install git')
-os.system('apt install git-lfs')
+
 os.system(f'git clone https://code.openxlab.org.cn/element/Ancient_Books.git {base_path}')
 os.system(f'cd {base_path} && git lfs pull')
 
