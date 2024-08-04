@@ -97,7 +97,7 @@ def on_btn_click():
 
 @st.cache_resource
 def load_model():
-    model = (AutoModelForCausalLM.from_pretrained(base_path trust_remote_code=True).cuda())
+    model = (AutoModelForCausalLM.from_pretrained(base_path, trust_remote_code=True).cuda())
     tokenizer = AutoTokenizer.from_pretrained(base_path, trust_remote_code=True)
     return model, tokenizer
 
