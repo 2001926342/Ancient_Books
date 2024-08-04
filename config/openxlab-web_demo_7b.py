@@ -17,7 +17,7 @@ logger = logging.get_logger(__name__)
 print('pip install modelscope websockets')
 os.system(f'pip install modelscope websockets==11.0.3')
 
-base_path = './model/Ancient_Books'
+base_path = './Ancient_Books'
 os.system(f'git clone hhttps://openxlab.org.cn/models/detail/element/Ancient_Books.git {base_path}')
 os.system(f'cd {base_path} && git lfs pull')
 
@@ -39,7 +39,7 @@ gradient_text_html = """
     font-size: 3em;
     /* 使用相对定位并上移 */
     position: relative;
-    top: -115px;
+    top: -90px;
 }
 </style>
 <div class="container">
