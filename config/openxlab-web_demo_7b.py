@@ -16,9 +16,11 @@ from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 logger = logging.get_logger(__name__)
 print('pip install modelscope websockets')
 os.system(f'pip install modelscope websockets==11.0.3')
-
 base_path = './Ancient_Books'
-os.system(f'git clone hhttps://openxlab.org.cn/models/detail/element/Ancient_Books.git {base_path}')
+# download repo to the base_path directory using git
+os.system('apt install git')
+os.system('apt install git-lfs')
+os.system(f'git clone https://code.openxlab.org.cn/element/Ancient_Books.git {base_path}')
 os.system(f'cd {base_path} && git lfs pull')
 
 gradient_text_html = """
