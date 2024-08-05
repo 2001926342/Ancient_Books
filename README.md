@@ -28,6 +28,9 @@
  
 ## 🔄 架构图
 
+<p align="center">
+    <img src="assets/tech_route.png" alt="route" width="100%">
+</p>
 
 ## 📝 简介
 
