@@ -109,7 +109,7 @@ mkdir -p /group_share/Ancient_Books/model
 import torch
 from modelscope import snapshot_download, AutoModel, AutoTokenizer
 import os
-model_dir = snapshot_download('Shanghai_AI_Laboratory/internlm2-math-7b', cache_dir='/group_share/Ancient_Books/model')
+model_dir = snapshot_download('Shanghai_AI_Laboratory/Ancient_Books', cache_dir='/group_share/Ancient_Books/model')
 ```
 
 3、修改配置文件
